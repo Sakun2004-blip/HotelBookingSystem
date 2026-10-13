@@ -21,7 +21,8 @@
 }
 .nav{
     background-color: yellow;
-}.location-section {
+}
+.location-section {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -50,4 +51,18 @@
     height:100px;
     width:1920px;
     background-color:yellow;
+}
+.foot {
+  min-height: 200px;
+  width: 100%;
+  box-sizing: border-box;
+  padding: 24px;
+  background-color: red;
+  color: white;
+  text-align: left;
+  font: 16px Arial, Helvetica, sans-serif;
+}
+
+.foot p {
+  margin: 0;
 }
