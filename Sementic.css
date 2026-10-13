@@ -13,3 +13,8 @@
     width:1920px;
     background-color: maroon;
 }
+.CardBox{
+    display:flex;
+     margin: 20px;
+     gap: 40px;
+}
