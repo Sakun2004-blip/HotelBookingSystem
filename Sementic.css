@@ -53,16 +53,28 @@
     background-color:yellow;
 }
 .foot {
-  min-height: 200px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  min-height: 150px;
   width: 100%;
   box-sizing: border-box;
   padding: 24px;
   background-color: red;
   color: white;
-  text-align: left;
   font: 16px Arial, Helvetica, sans-serif;
 }
 
-.foot p {
+.footer-column {
+  text-align: center;
+}
+
+.footer-column p {
   margin: 0;
+}
+
+@media (max-width: 600px) {
+  .foot {
+    grid-template-columns: 1fr;
+  }
 }
