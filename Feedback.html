@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="Read guest feedback and share your experience at Hotel Grand Vila.">
+        <title>Guest Feedback | Hotel Grand Vila</title>
+        <link rel="stylesheet" href="Feedback.css">
+    </head>
+    <body>
+        <header class="feedback-hero">
+            <div class="feedback-hero-content">
+                <p class="feedback-eyebrow">Your experience matters</p>
+                <h1>Guest Feedback</h1>
+                <p>Every stay has a story. Read sample guest comments and share what made your visit to Hotel Grand Vila special.</p>
+            </div>
+        </header>
+
+        <main class="feedback-main">
+            <section class="feedback-intro" aria-labelledby="feedback-heading">
+                <p class="feedback-eyebrow">A guestbook of good moments</p>
+                <h2 id="feedback-heading">Stories from the stay</h2>
+                <p>From a warm welcome to a relaxing getaway, your words help us celebrate what we do well and make every visit even better.</p>
+            </section>
+
+            <section class="feedback-layout" aria-label="Guest comments and feedback form">
+                <div class="comments-section">
+                    <div class="comments-heading">
+                        <div>
+                            <p class="feedback-eyebrow">Guestbook</p>
+                            <h2>Previous feedback</h2>
+                        </div>
+                        <span class="sample-label">Sample comments</span>
+                    </div>
+
+                    <div class="comments-list" id="comments-list" aria-live="polite">
+                        <article class="comment-card">
+                            <div class="comment-author">
+                                <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&amp;fit=crop&amp;w=160&amp;h=160&amp;q=85" alt="Guest portrait">
+                                <div>
+                                    <h3>Amaya Perera</h3>
+                                    <p class="comment-stay">A relaxing weekend</p>
+                                </div>
+                                <span class="comment-rating" aria-label="5 out of 5 stars">★★★★★</span>
+                            </div>
+                            <blockquote>“The team made us feel welcome from the moment we arrived. The peaceful atmosphere was just what we needed for a restful break.”</blockquote>
+                        </article>
+
+                        <article class="comment-card">
+                            <div class="comment-author">
+                                <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&amp;fit=crop&amp;w=160&amp;h=160&amp;q=85" alt="Guest portrait">
+                                <div>
+                                    <h3>Rohan Silva</h3>
+                                    <p class="comment-stay">A memorable family trip</p>
+                                </div>
+                                <span class="comment-rating" aria-label="5 out of 5 stars">★★★★★</span>
+                            </div>
+                            <blockquote>“A comfortable stay with thoughtful service. We especially enjoyed sharing meals together and getting helpful suggestions for places to visit nearby.”</blockquote>
+                        </article>
+
+                        <article class="comment-card">
+                            <div class="comment-author">
+                                <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&amp;fit=crop&amp;w=160&amp;h=160&amp;q=85" alt="Guest portrait">
+                                <div>
+                                    <h3>Isuri Fernando</h3>
+                                    <p class="comment-stay">A peaceful escape</p>
+                                </div>
+                                <span class="comment-rating" aria-label="4 out of 5 stars">★★★★☆</span>
+                            </div>
+                            <blockquote>“I loved having a quiet place to unwind after exploring. The staff were kind and attentive, and the whole visit felt easy and comfortable.”</blockquote>
+                        </article>
+                    </div>
+                </div>
+
+                <aside class="feedback-form-panel">
+                    <p class="feedback-eyebrow">Leave us a note</p>
+                    <h2>Share your experience</h2>
+                    <p class="form-intro">We'd love to hear about your stay. Your comment will appear here while this page is open.</p>
+                    <form id="feedback-form">
+                        <label for="guest-name">Your name</label>
+                        <input id="guest-name" name="name" type="text" autocomplete="name" maxlength="60" placeholder="e.g. Nimal Perera" required>
+
+                        <label for="stay-title">A title for your visit</label>
+                        <input id="stay-title" name="stay" type="text" maxlength="80" placeholder="e.g. A lovely weekend" required>
+
+                        <label for="guest-rating">Your rating</label>
+                        <select id="guest-rating" name="rating" required>
+                            <option value="5">★★★★★ — Excellent</option>
+                            <option value="4">★★★★☆ — Very good</option>
+                            <option value="3">★★★☆☆ — Good</option>
+                            <option value="2">★★☆☆☆ — Fair</option>
+                            <option value="1">★☆☆☆☆ — Needs improvement</option>
+                        </select>
+
+                        <label for="guest-comment">Your comment</label>
+                        <textarea id="guest-comment" name="comment" rows="5" maxlength="500" placeholder="Tell us what you enjoyed about your stay..." required></textarea>
+                        <p class="form-note">This demo adds your comment to this page only; it is not saved or sent to the hotel.</p>
+                        <button type="submit">Post feedback</button>
+                        <p class="form-status" id="form-status" role="status"></p>
+                    </form>
+                </aside>
+            </section>
+        </main>
+
+        <footer class="feedback-footer">
+            <div class="footer-content">
+                <div>
+                    <p class="footer-brand">Hotel Grand Vila</p>
+                    <p>Thank you for being part of our story.</p>
+                </div>
+                <div>
+                    <p>Your thoughts help us make every stay more welcoming.</p>
+                    <span>We look forward to seeing you again.</span>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <span>&copy; 2026 Hotel Grand Vila</span>
+                <span>Warm hospitality, lasting memories.</span>
+            </div>
+        </footer>
+
+        <script>
+            const feedbackForm = document.getElementById("feedback-form");
+            const commentsList = document.getElementById("comments-list");
+            const formStatus = document.getElementById("form-status");
+
+            feedbackForm.addEventListener("submit", (event) => {
+                event.preventDefault();
+
+                if (!feedbackForm.reportValidity()) {
+                    return;
+                }
+
+                const formData = new FormData(feedbackForm);
+                const rating = Number(formData.get("rating"));
+                const comment = document.createElement("article");
+                comment.className = "comment-card new-comment";
+
+                const author = document.createElement("div");
+                author.className = "comment-author";
+
+                const avatar = document.createElement("div");
+                avatar.className = "comment-avatar";
+                avatar.setAttribute("aria-hidden", "true");
+                avatar.textContent = String(formData.get("name")).trim().charAt(0).toUpperCase();
+
+                const details = document.createElement("div");
+                const name = document.createElement("h3");
+                name.textContent = String(formData.get("name")).trim();
+                const stay = document.createElement("p");
+                stay.className = "comment-stay";
+                stay.textContent = String(formData.get("stay")).trim();
+                details.append(name, stay);
+
+                const stars = document.createElement("span");
+                stars.className = "comment-rating";
+                stars.setAttribute("aria-label", `${rating} out of 5 stars`);
+                stars.textContent = "★".repeat(rating) + "☆".repeat(5 - rating);
+                author.append(avatar, details, stars);
+
+                const quote = document.createElement("blockquote");
+                quote.textContent = `“${String(formData.get("comment")).trim()}”`;
+                comment.append(author, quote);
+                commentsList.prepend(comment);
+
+                feedbackForm.reset();
+                formStatus.textContent = "Thanks for sharing your feedback. It has been added to the guestbook for this visit.";
+            });
+        </script>
+    </body>
+</html>
